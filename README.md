@@ -1,3 +1,5 @@
+> 📂 **관광 식당 메뉴판 번역 프로젝트** — **📱 App** · [🖥️ Web](https://github.com/Chun-Bae/restaurant-menu-translation-web) · [🔧 API](https://github.com/Chun-Bae/restaurant-menu-translation-api) · [🔍 OCR Model](https://github.com/Chun-Bae/restaurant-menu-translation-ocr-model) · [🌐 Translate Model](https://github.com/Chun-Bae/restaurant-menu-translation-translate-model)
+
 # 📱 Mobile App — Flutter 하이브리드 클라이언트
 
 > **카메라 촬영 → API 전송 → WebView 결과 확인의 네이티브 앱**
