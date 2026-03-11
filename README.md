@@ -1,17 +1,43 @@
-# ocr_translate
-딥러닝 시스템 과제: AI OCR 인식 및 번역 모바일(안드로이드)앱 뷰.  
-  
-메인 기능이 아니기 때문에 번역 설정과 카메라 기능만 담겨져 있음.
+# 📱 Mobile App — Flutter 하이브리드 클라이언트
 
-## Getting Started
+> **카메라 촬영 → API 전송 → WebView 결과 확인의 네이티브 앱**
 
-This project is a starting point for a Flutter application.
+| 기술 스택 | 역할 |
+|-----------|------|
+| **Flutter** | 크로스플랫폼 네이티브 앱 |
+| **image_picker** | 카메라 촬영 · 갤러리 접근 |
+| **permission_handler** | 기기 권한 관리 |
+| **webview_flutter** | Next.js 결과 페이지 브릿지 |
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📁 프로젝트 구조
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+restaurant-menu-translation-app/
+├── lib/
+│   └── main.dart        # 앱 진입점, 카메라 → API 업로드 → WebView 로드
+├── pubspec.yaml         # Flutter 의존성 및 패키지 설정
+└── android / ios /      # 플랫폼별 네이티브 설정
+```
+
+## 🏗️ 하이브리드 아키텍처
+
+```
+┌─────────────────────────────┐
+│  Flutter (Native Layer)     │
+│  · 카메라 촬영 / 갤러리 접근      │
+│  · 이미지 → FastAPI 업로드     │
+└──────────┬──────────────────┘
+           │ 분석 완료 시
+┌──────────▼──────────────────┐
+│  WebView (Web Layer)        │
+│  · Next.js 결과 페이지 로드     │
+│  · 반응형 그리드 결과 표시        │
+└─────────────────────────────┘
+```
+
+### 왜 하이브리드인가?
+
+- **네이티브 카메라**의 쾌적한 UX와 **웹 프레임워크**의 빠른 UI 개발 속도를 동시에 취하기 위해 의도적으로 선택한 아키텍처입니다.
+- 결과 화면 수정 시 앱 재배포(심사) 없이 웹만 업데이트하면 즉시 반영됩니다.
